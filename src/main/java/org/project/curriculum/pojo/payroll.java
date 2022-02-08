@@ -47,7 +47,8 @@ public class payroll {
     @Override
     public String toString() {
         return "payroll{" +
-                "employeeId=" + employeeId +
+                "payrollId=" + payrollId +
+                ", employeeId=" + employeeId +
                 ", Position='" + Position + '\'' +
                 '}';
     }

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @MapperScan("org.project.curriculum.mapper")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "org.project.curriculum")
 public class CurriculumApplication {
 
     public static void main(String[] args) {
