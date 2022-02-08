@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.project.curriculum.mapper.salarySettingMapper">
+
+    <update id="updateOne">
+        update salary_setting
+        set salary=#{value.salary}
+        where Position = #{value.Position}
+    </update>
+
+    <update id="updateBatch">
+        <foreach collection="list" item="value" separator=";">
+            update salary_setting
+            set salary=#{value.salary}
+            where   Position=#{value.Position}
+        </foreach>
+    </update>
+
+    <delete id="deleteOne">
+        delete
+        from salary_setting
+        where Position = #{value.Position}
+          and salary = #{value.salary};
+    </delete>
+
+    <delete id="deleteBatch">
+        <foreach collection="list" item="value" separator=";">
+            delete from salary_setting
+            where
+            Position=#{value.Position}
+            and
+            salary=#{value.salary}
+        </foreach>
+    </delete>
+
+    <select id="selectAll" resultType="org.project.curriculum.pojo.salarySetting">
+        select *
+        from salary_setting;
+    </select>
+
+
+    <insert id="insertOne">
+        insert into salary_setting
+        values (#{value.Position}, #{value.salary})
+    </insert>
+
+    <insert id="insertBatch">
+        insert into salary_setting
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.Position}, #{item.salary})
+        </foreach>
+    </insert>
+
+
+</mapper>

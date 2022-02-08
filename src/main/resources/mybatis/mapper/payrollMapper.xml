@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.project.curriculum.mapper.payrollMapper">
+    <insert id="insertOne">
+        insert into payroll(employee_id, Position)
+        values (#{value.employeeId}, #{value.Position})
+    </insert>
+
+    <insert id="insertBatch">
+        insert into payroll(employee_id, Position)
+        values
+        <foreach collection="list" item="value" separator=",">
+            (#{value.employeeId},#{value.Position})
+        </foreach>
+    </insert>
+
+    <update id="updateOne">
+        update payroll
+        set employee_id=#{value.employeeId},
+            Position=#{value.Position}
+        where  payroll_id=#{value.payrollId}
+    </update>
+
+    <update id="updateBatch">
+        <foreach collection="list" item="value" separator=";">
+            update payroll
+            set employee_id=#{value.employeeId},
+                Position=#{value.Position}
+            where  payroll_id=#{value.payrollId}
+        </foreach>
+    </update>
+
+    <delete id="deleteOne">
+        delete from payroll
+        where payroll_id=#{value.payrollId}
+    </delete>
+
+    <delete id="deleteBatch">
+        delete from payroll
+        where payroll_id in
+        <foreach collection="list" item="value" open="(" close=")" separator=",">
+            #{value.payrollId}
+        </foreach>
+    </delete>
+
+    <select id="select" resultType="org.project.curriculum.pojo.payroll">
+        select *
+        from payroll
+        <where>
+            <if test="value!=null and value.payrollId!=0">
+                payroll_id=#{value.payrollId}
+            </if>
+            <if test="value!=null and value.Position!=null">
+                and Position=#{value.Position}
+            </if>
+            <if test="value!=null and value.employeeId!=0">
+                and employee_id=#{value.employeeId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.project.curriculum.mapper.employeeInformationMapper">
+
+    <insert id="insertOne">
+        insert into employee_information(name, entry_time)
+        values (#{value.name}, #{value.entryTime})
+    </insert>
+
+    <insert id="insertBatch">
+        insert into employee_information(name, entry_time)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.name},#{item.entry_time})
+        </foreach>
+    </insert>
+
+    <update id="updateOne">
+        update employee_information
+        <set>
+            <if test="value!=null and value.name!=null">
+                name=#{value.name}
+            </if>
+            <if test="value!=null and value.entryTime!=null">
+                entryTime=#{value.entryTime}
+            </if>
+        </set>
+        where id = #{value.id}
+    </update>
+
+    <update id="updateBatch">
+        <foreach collection="list" item="value" separator=";">
+            update employee_information
+            <set>
+                <if test="value!=null and value.name!=null">
+                    name=#{value.name}
+                </if>
+                <if test="value!=null and value.entryTime!=null">
+                    entryTime=#{value.entryTime}
+                </if>
+            </set>
+            where
+            id=#{value.id}
+        </foreach>
+    </update>
+
+    <delete id="deleteOne">
+        delete
+        from employee_information
+        where id = #{value.id}
+          and name = #{value.name}
+    </delete>
+
+    <delete id="deleteBatch">
+        <foreach collection="list" item="value" separator=";">
+            delete from employee_information
+            where
+            id=#{value.id}
+            and
+            name=#{value.name}
+        </foreach>
+    </delete>
+
+    <select id="selectAll" resultType="org.project.curriculum.pojo.employeeInformation">
+        select *
+        from employee_information
+        <where>
+            <if test="value!=null and value.id!=0">
+                id=#{value.id}
+            </if>
+            <if test="value!=null and value.name!=null">
+                and name=#{value.name}
+            </if>
+            <if test="value!=null and value.entryTime!=null">
+                and entry_time=#{value.entryTime}
+            </if>
+        </where>
+    </select>
+
+</mapper>
