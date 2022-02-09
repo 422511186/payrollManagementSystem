@@ -20,13 +20,13 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/api/employee")
 @Api(tags = "员工信息接口")
-public class employeeController {
+public class employeeAPI {
 
     private final employeeServiceImpl employeeService;
 
-    public employeeController(employeeServiceImpl employeeService) {
+    public employeeAPI(employeeServiceImpl employeeService) {
         this.employeeService = employeeService;
     }
 

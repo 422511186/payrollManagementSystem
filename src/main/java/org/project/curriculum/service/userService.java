@@ -1,5 +1,13 @@
 package org.project.curriculum.service;
 
+import org.project.curriculum.api.params.updateUserPwdParam;
+import org.project.curriculum.exception.FailException;
+import org.project.curriculum.exception.LoginException;
+import org.project.curriculum.pojo.user;
+import org.springframework.stereotype.Service;
+
+import java.sql.SQLException;
+
 /**
  * @Auther: hzy
  * @Date: 2022/2/8 23:34
@@ -7,4 +15,30 @@ package org.project.curriculum.service;
  */
 public interface userService {
 
+    /**
+     * 注册
+     * @param user
+     * @return
+     * @throws FailException
+     */
+    boolean Register(user user) throws FailException;
+
+    /**
+     * 登录
+     * @param user
+     * @return
+     * @throws FailException
+     * @throws LoginException
+     */
+    boolean Login(user user) throws FailException, LoginException;
+
+    /**
+     * 修改密码
+     * @param param
+     * @return
+     * @throws LoginException
+     * @throws FailException
+     * @throws SQLException
+     */
+    boolean updatePwd(updateUserPwdParam param) throws LoginException, FailException, SQLException;
 }

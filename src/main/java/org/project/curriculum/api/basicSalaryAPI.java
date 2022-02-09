@@ -18,9 +18,9 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping(value = "/Salary")
+@RequestMapping(value = "/api/Salary")
 @Api(tags = "企业工资设定接口")
-public class basicSalaryController {
+public class basicSalaryAPI {
     private final basicSalaryServiceImpl basicSalaryService;
 
     /**
@@ -28,7 +28,7 @@ public class basicSalaryController {
      *
      * @param basicSalaryService
      */
-    public basicSalaryController(basicSalaryServiceImpl basicSalaryService) {
+    public basicSalaryAPI(basicSalaryServiceImpl basicSalaryService) {
         this.basicSalaryService = basicSalaryService;
     }
 

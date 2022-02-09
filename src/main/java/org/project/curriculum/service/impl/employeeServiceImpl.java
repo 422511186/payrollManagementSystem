@@ -13,6 +13,7 @@ import org.project.curriculum.service.employeeService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import java.util.List;
  */
 
 @Service
-@Transactional
+@Transactional(rollbackFor = {FailException.class, SQLException.class})
 public class employeeServiceImpl implements employeeService {
 
     private final employeeInformationMapper employeeInformationMapper;

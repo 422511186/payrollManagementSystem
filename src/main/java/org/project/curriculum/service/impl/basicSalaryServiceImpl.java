@@ -8,6 +8,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
  * @Description:
  */
 @Service
-@Transactional(rollbackFor = {FailException.class, DuplicateKeyException.class})
+@Transactional(rollbackFor = {FailException.class, SQLException.class})
 public class basicSalaryServiceImpl implements basicSalaryService {
 
     private final salarySettingMapper salarySettingMapper;
