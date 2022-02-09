@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * 企业工资设定
+ *
  * @Auther: hzy
  * @Date: 2022/2/8 19:26
  * @Description:
@@ -21,43 +22,82 @@ import java.util.List;
 public class basicSalaryController {
     private final basicSalaryServiceImpl basicSalaryService;
 
+    /**
+     * 通过构造函数，从spring容器中进行依赖注入
+     *
+     * @param basicSalaryService
+     */
     public basicSalaryController(basicSalaryServiceImpl basicSalaryService) {
         this.basicSalaryService = basicSalaryService;
     }
 
+    /**
+     * 获取列表
+     *
+     * @return
+     * @throws FailException
+     */
     @GetMapping("/getSalaryList")
     Result<List<salarySetting>> getSalaryList() throws FailException {
         List<salarySetting> list = basicSalaryService.getSalaryList();
-        Result<List<salarySetting>> result = new Result<>(200, "初始化成功",list);
+        Result<List<salarySetting>> result = new Result<>(200, "success", list);
         return result;
-
     }
+
+    /**
+     * 批量插入
+     *
+     * @param list
+     * @return
+     * @throws FailException
+     */
     @PostMapping("/initList")
-    Result<Integer> setSalaryList(@RequestBody salarySetting[] list) throws FailException {
-        int value = basicSalaryService.InitBasicSalary(Arrays.asList(list));
-        Result<Integer> result = new Result<>(200, "初始化成功",value);
+    Result<String> setSalaryList(@RequestBody salarySetting[] list) throws FailException {
+        basicSalaryService.InitBasicSalary(Arrays.asList(list));
+        Result<String> result = new Result<>(200, "success", "初始化成功");
         return result;
     }
 
+    /**
+     * 添加一个
+     *
+     * @param list
+     * @return
+     * @throws FailException
+     */
     @PostMapping("/addOneItem")
-    Result<Integer> addOneItem(@RequestBody salarySetting list) throws FailException {
-        int value = basicSalaryService.addOneItem(list);
-        Result<Integer> result = new Result<>(200, "添加成功",value);
+    Result<String> addOneItem(@RequestBody salarySetting list) throws FailException {
+        basicSalaryService.addOneItem(list);
+        Result<String> result = new Result<>(200, "success", "添加成功");
         return result;
     }
 
+    /**
+     * 批量修改
+     *
+     * @param list
+     * @return
+     * @throws FailException
+     */
     @PostMapping("/updateBasicSalary")
-    Result<Integer> updateBasicSalary(@RequestBody salarySetting[] list) throws FailException {
-        int value = basicSalaryService.updateBasicSalary(Arrays.asList(list));
-        Result<Integer> result = new Result<Integer>(200, "修改成功",value);
+    Result<String> updateBasicSalary(@RequestBody salarySetting[] list) throws FailException {
+        basicSalaryService.updateBasicSalary(Arrays.asList(list));
+        Result<String> result = new Result<>(200, "success", "修改成功");
         return result;
     }
 
-   @PostMapping("/deleteByObj")
-   Result<Integer> deleteByObj(@RequestBody salarySetting[] list) throws FailException {
-       int value = basicSalaryService.deleteByObj(Arrays.asList(list));
-       Result<Integer> result = new Result<>(200, "删除成功",value);
-       return result;
-   }
+    /**
+     * 批量删除
+     *
+     * @param list
+     * @return
+     * @throws FailException
+     */
+    @PostMapping("/deleteByObj")
+    Result<String> deleteByObj(@RequestBody salarySetting[] list) throws FailException {
+        basicSalaryService.deleteByObj(Arrays.asList(list));
+        Result<String> result = new Result<>(200, "success", "删除成功");
+        return result;
+    }
 
 }

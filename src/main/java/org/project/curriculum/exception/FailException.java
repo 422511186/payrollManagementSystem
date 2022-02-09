@@ -1,7 +1,8 @@
 package org.project.curriculum.exception;
 
 /**
- * 业务失败异常
+ * 业务执行失败异常
+ *
  * @Auther: hzy
  * @Date: 2022/2/8 18:53
  * @Description:
@@ -9,8 +10,7 @@ package org.project.curriculum.exception;
 
 public class FailException extends Exception {
 
-    public FailException(String msg)
-    {
+    public FailException(String msg) {
         super(msg);
     }
 }

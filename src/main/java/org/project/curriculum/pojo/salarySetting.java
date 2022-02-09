@@ -1,7 +1,6 @@
 package org.project.curriculum.pojo;
 
 /**
- *  企业工资的基本设定
  * @Auther: hzy
  * @Date: 2022/2/8 06:43
  * @Description:

@@ -5,6 +5,7 @@ package org.project.curriculum.pojo;
  * @Date: 2022/2/8 13:49
  * @Description:
  */
+
 public class user {
     private Integer id;
     private String account;

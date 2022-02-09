@@ -2,7 +2,11 @@ package org.project.curriculum.utils;
 
 import java.io.Serializable;
 
-
+/**
+ * 返回数据给前端的封装类
+ *
+ * @param <T>
+ */
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;
 

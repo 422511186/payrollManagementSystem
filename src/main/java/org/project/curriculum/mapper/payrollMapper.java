@@ -15,24 +15,28 @@ import java.util.List;
 public interface payrollMapper {
     /**
      * 获取员工工资表
+     *
      * @return
      */
     List<payroll> select(@Param("value") payroll value);
 
     /**
      * 单条插入
+     *
      * @param value
      */
     int insertOne(@Param("value") payroll value);
 
     /**
      * 批量插入
+     *
      * @param list
      */
     int insertBatch(@Param("list") List<payroll> list);
 
     /**
      * 单个修改
+     *
      * @param value
      * @return
      */
@@ -40,6 +44,7 @@ public interface payrollMapper {
 
     /**
      * 批量修改
+     *
      * @param list
      * @return
      */
@@ -47,6 +52,7 @@ public interface payrollMapper {
 
     /**
      * 删除单个
+     *
      * @param value
      * @return
      */
@@ -54,6 +60,7 @@ public interface payrollMapper {
 
     /**
      * 批量删除
+     *
      * @param list
      * @return
      */

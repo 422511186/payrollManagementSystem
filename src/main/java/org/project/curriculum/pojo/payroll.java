@@ -2,10 +2,12 @@ package org.project.curriculum.pojo;
 
 /**
  * 员工工资表
+ *
  * @Auther: hzy
  * @Date: 2022/2/8 07:09
  * @Description:
  */
+
 public class payroll {
     private Integer payrollId;
     private Integer employeeId;

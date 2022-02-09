@@ -5,12 +5,12 @@
 
 <mapper namespace="org.project.curriculum.mapper.employeeInformationMapper">
 
-    <insert id="insertOne">
+    <insert id="insertOne" useGeneratedKeys="true" keyProperty="id">
         insert into employee_information(name, entry_time)
         values (#{value.name}, #{value.entryTime})
     </insert>
 
-    <insert id="insertBatch">
+    <insert id="insertBatch" useGeneratedKeys="true" keyProperty="id">
         insert into employee_information(name, entry_time)
         values
         <foreach collection="list" item="item" separator=",">
@@ -18,7 +18,7 @@
         </foreach>
     </insert>
 
-    <update id="updateOne">
+    <update id="updateOne" useGeneratedKeys="true" keyProperty="id">
         update employee_information
         <set>
             <if test="value!=null and value.name!=null">
@@ -31,7 +31,7 @@
         where id = #{value.id}
     </update>
 
-    <update id="updateBatch">
+    <update id="updateBatch" useGeneratedKeys="true" keyProperty="id">
         <foreach collection="list" item="value" separator=";">
             update employee_information
             <set>
@@ -54,7 +54,7 @@
           and name = #{value.name}
     </delete>
 
-    <delete id="deleteBatch">
+    <delete id="deleteBatch" >
         <foreach collection="list" item="value" separator=";">
             delete from employee_information
             where
@@ -78,6 +78,13 @@
                 and entry_time=#{value.entryTime}
             </if>
         </where>
+    </select>
+    <select id="selectOV" resultType="org.project.curriculum.api.vo.employeeInfoOv">
+        select id, name, entry_time, payroll_id, employee_id, pa.Position as Position, salary
+        from employee_information as em
+                 left join payroll as pa
+                           on em.id = pa.employee_id
+                 left join salary_setting ss on pa.Position = ss.Position
     </select>
 
 </mapper>

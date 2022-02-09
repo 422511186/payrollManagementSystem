@@ -36,6 +36,7 @@ class employeeInformationMapperTest {
         int result = mapper.insertOne(employeeInformation);
         System.out.println("------------------------");
         System.out.println(result);
+        System.out.println("employeeInformation.getId() = " + employeeInformation.getId());
         System.out.println("------------------------");
     }
 
@@ -52,6 +53,9 @@ class employeeInformationMapperTest {
         int result = mapper.insertBatch(list);
         System.out.println("------------------------");
         System.out.println(result);
+        list.forEach(e->{
+            System.out.println("e.getId() = " + e.getId());
+        });
         System.out.println("------------------------");
     }
 

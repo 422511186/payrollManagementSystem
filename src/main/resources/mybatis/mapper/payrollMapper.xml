@@ -19,30 +19,28 @@
 
     <update id="updateOne">
         update payroll
-        set employee_id=#{value.employeeId},
-            Position=#{value.Position}
-        where  payroll_id=#{value.payrollId}
+        set Position=#{value.Position}
+        where employee_id=#{value.employeeId}
     </update>
 
     <update id="updateBatch">
         <foreach collection="list" item="value" separator=";">
             update payroll
-            set employee_id=#{value.employeeId},
-                Position=#{value.Position}
-            where  payroll_id=#{value.payrollId}
+            set Position=#{value.Position}
+            where employee_id=#{value.employeeId}
         </foreach>
     </update>
 
     <delete id="deleteOne">
         delete from payroll
-        where payroll_id=#{value.payrollId}
+        where employee_id=#{value.employeeId}
     </delete>
 
     <delete id="deleteBatch">
         delete from payroll
-        where payroll_id in
+        where employee_id in
         <foreach collection="list" item="value" open="(" close=")" separator=",">
-            #{value.payrollId}
+            #{value.employeeId}
         </foreach>
     </delete>
 
@@ -50,9 +48,6 @@
         select *
         from payroll
         <where>
-            <if test="value!=null and value.payrollId!=0">
-                payroll_id=#{value.payrollId}
-            </if>
             <if test="value!=null and value.Position!=null">
                 and Position=#{value.Position}
             </if>

@@ -93,7 +93,7 @@ class payrollMapperTest {
 
     @Test
     void deleteOne() {
-        payroll payroll = new payroll(45,null,null);
+        payroll payroll = new payroll(0,1,null);
 
         int result = mapper.deleteOne(payroll);
         System.out.println("------------------------");
@@ -105,9 +105,9 @@ class payrollMapperTest {
     void deleteBatch() {
 
         ArrayList<payroll> list = new ArrayList<payroll>(){{
-            add(new payroll(5,null,null));
-            add(new payroll(15,null,null));
-            add(new payroll(16,null,null));
+            add(new payroll(0,1,null));
+            add(new payroll(0,2,null));
+            add(new payroll(0,3,null));
         }};
 
         int result = mapper.deleteBatch(list);

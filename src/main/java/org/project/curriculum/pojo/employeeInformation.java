@@ -6,17 +6,18 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 /**
- * 员工信息表
  * @Auther: hzy
  * @Date: 2022/2/8 06:48
  * @Description:
  */
+
 public class employeeInformation {
+
     private Integer id;
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date entryTime;
 
     public employeeInformation() {

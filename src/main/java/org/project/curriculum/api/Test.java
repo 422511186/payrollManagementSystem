@@ -1,12 +1,13 @@
 package org.project.curriculum.api;
 
 import org.project.curriculum.exception.FailException;
-import org.project.curriculum.pojo.salarySetting;
-import org.project.curriculum.utils.Result;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 测试接口类
+ *
  * @Auther: hzy
  * @Date: 2022/2/8 06:34
  * @Description:
@@ -16,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class Test {
     @GetMapping(value = "/test")
-    public String test() throws Exception{
-        throw  new FailException("111");
+    public String test() throws Exception {
+        throw new FailException("111");
     }
 
 
