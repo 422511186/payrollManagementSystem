@@ -1,5 +1,6 @@
 package org.project.curriculum.api;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.project.curriculum.api.params.employeeInfoParam;
 import org.project.curriculum.api.params.modifyParam;
@@ -17,8 +18,10 @@ import java.util.List;
  * @Date: 2022/2/9 13:46
  * @Description:
  */
+
 @RestController
 @RequestMapping("/employee")
+@Api(tags = "员工信息接口")
 public class employeeController {
 
     private final employeeServiceImpl employeeService;

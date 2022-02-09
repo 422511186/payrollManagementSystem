@@ -1,5 +1,6 @@
 package org.project.curriculum.api;
 
+import io.swagger.annotations.Api;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.pojo.salarySetting;
 import org.project.curriculum.service.impl.basicSalaryServiceImpl;
@@ -10,15 +11,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 企业工资设定
  *
  * @Auther: hzy
  * @Date: 2022/2/8 19:26
  * @Description:
  */
-@CrossOrigin
+
 @RestController
 @RequestMapping(value = "/Salary")
+@Api(tags = "企业工资设定接口")
 public class basicSalaryController {
     private final basicSalaryServiceImpl basicSalaryService;
 
