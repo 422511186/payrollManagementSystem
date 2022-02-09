@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class MyWebMvcConfigure implements WebMvcConfigurer {
+
     /**
      * 拦截器配置
      * @param registry
@@ -26,8 +27,15 @@ public class MyWebMvcConfigure implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/**")  //所有请求都被拦截包括静态资源
-                .excludePathPatterns("/**/login","/**/Register"); //放行的请求
+                .excludePathPatterns("/**/login",
+                        "/**/Register",
+
+                   //放行swagger资源请求
+                        "/**/swagger-ui/index.html",
+                        "/v3/api-docs",
+                        "/**/swagger-resources/**"); //放行的请求
     }
+
     /**
      * 跨域配置
      *
@@ -40,6 +48,10 @@ public class MyWebMvcConfigure implements WebMvcConfigurer {
                 .allowCredentials(true).maxAge(3600);
     }
 
+    /**
+     * @param builder
+     * @return
+     */
     @Bean
     @Primary
     @ConditionalOnMissingBean
