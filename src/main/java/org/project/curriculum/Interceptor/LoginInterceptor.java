@@ -58,7 +58,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
 
-        throw new UnLoginException("未登录，请登陆后重新访问");
+        throw  new UnLoginException("未登录，请登陆后重新访问");
 
 //        Result<Object> result = new Result<>(403,"FAIL","未登录，请登陆后重新访问");
 //        response.setContentType("application/json;charset=utf-8");
