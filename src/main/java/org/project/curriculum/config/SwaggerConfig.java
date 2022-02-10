@@ -26,7 +26,9 @@ public class SwaggerConfig {
                 .paths(PathSelectors.regex("(?!/error.*).*"))
                 .build()
                 .apiInfo(new ApiInfoBuilder()
-                        .contact(new Contact("hzy", "https://docs.apipost.cn/preview/24917c39d2365368/b42c5157db4d84d5", "422511186@qq.com"))
+                        .contact(new Contact("hzy",
+                                "https://docs.apipost.cn/preview/24917c39d2365368/b42c5157db4d84d5",
+                                "422511186@qq.com"))
                         .title("工资管理系统")
                         .version("1.0")
                         .build()
