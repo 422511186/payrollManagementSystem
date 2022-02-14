@@ -10,9 +10,10 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.text.SimpleDateFormat;
 
 /**
  * @Auther: hzy
@@ -39,18 +40,6 @@ public class MyWebMvcConfigure implements WebMvcConfigurer {
                         "/**/swagger-resources/**"); //放行的请求
     }
 
-//    /**
-//     * 跨域配置
-//     *
-//     * @param registry
-//     */
-//    @Override
-//    public void addCorsMappings(CorsRegistry registry) {
-//        registry.addMapping("/**").allowedOrigins("*")
-//                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
-//                .allowCredentials(true).maxAge(3600);
-//    }
-
     /**
      * @param builder
      * @return
@@ -60,6 +49,15 @@ public class MyWebMvcConfigure implements WebMvcConfigurer {
     @ConditionalOnMissingBean
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder){
         return builder.createXmlMapper(false).build();
+    }
+
+    /**
+     * 时间格式化对象
+     * @return
+     */
+    @Bean
+    public SimpleDateFormat SimpleDateFormat(){
+        return new SimpleDateFormat("yyyy-MM");
     }
 
     /**

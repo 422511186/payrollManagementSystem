@@ -1,6 +1,6 @@
 package org.project.curriculum.service.impl;
 
-import org.project.curriculum.api.params.updateUserPwdParam;
+import org.project.curriculum.api.Params.updateUserPwdParam;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.exception.LoginException;
 import org.project.curriculum.mapper.userMapper;

@@ -1,4 +1,4 @@
-package org.project.curriculum.api.params;
+package org.project.curriculum.api.Params;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -6,12 +6,16 @@ import lombok.Data;
 
 /**
  * @Auther: hzy
- * @Date: 2022/2/9 14:40
+ * @Date: 2022/2/9 15:35
  * @Description:
  */
 @Data
-@ApiModel("入职Param")
-public class employeeInfoParam {
+@ApiModel("修改员工资料")
+public class modifyParam {
+
+    @ApiModelProperty("员工id")
+    private Integer id;
+
     @ApiModelProperty("员工姓名")
     private String name;
 

@@ -1,20 +1,13 @@
 package org.project.curriculum.Interceptor;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.nashorn.internal.parser.JSONParser;
 import lombok.extern.slf4j.Slf4j;
-import org.project.curriculum.exception.LoginException;
 import org.project.curriculum.exception.UnLoginException;
-import org.project.curriculum.utils.Result;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
 
 /**
  * 登录检查
@@ -24,16 +17,6 @@ import java.io.PrintWriter;
 @Slf4j
 public class LoginInterceptor implements HandlerInterceptor {
 
-//    private final ObjectMapper objectMapper;
-//
-//    /**
-//     * 构造器初始化变量
-//     */
-//    public LoginInterceptor() {
-//        System.out.println("objectMapper 初始化");
-//        Jackson2ObjectMapperBuilder builder = new Jackson2ObjectMapperBuilder();
-//        objectMapper = builder.createXmlMapper(false).build();
-//    }
 
     /**
      * 目标方法执行之前
@@ -60,13 +43,6 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         throw  new UnLoginException("未登录，请登陆后重新访问");
 
-//        Result<Object> result = new Result<>(403,"FAIL","未登录，请登陆后重新访问");
-//        response.setContentType("application/json;charset=utf-8");
-//        response.setStatus(200);
-//        PrintWriter writer = response.getWriter();
-//
-//        writer.print(objectMapper.writeValueAsString(result));
-//        return false;
     }
 
     /**

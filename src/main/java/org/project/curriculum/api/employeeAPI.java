@@ -2,10 +2,10 @@ package org.project.curriculum.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.project.curriculum.api.params.employeeInfoParam;
-import org.project.curriculum.api.params.modifyParam;
-import org.project.curriculum.api.params.resignParam;
-import org.project.curriculum.api.vo.employeeInfoOv;
+import org.project.curriculum.api.Params.employeeInfoParam;
+import org.project.curriculum.api.Params.modifyParam;
+import org.project.curriculum.api.Params.resignParam;
+import org.project.curriculum.api.Vo.employeeInfoVO;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.service.impl.employeeServiceImpl;
 import org.project.curriculum.utils.Result;
@@ -32,8 +32,8 @@ public class employeeAPI {
 
     @ApiOperation("获取员工信息列表")
     @GetMapping(value = "getList")
-    public Result<List<employeeInfoOv>> getList() {
-        List<employeeInfoOv> list = employeeService.getEmployeeList();
+    public Result<List<employeeInfoVO>> getList() {
+        List<employeeInfoVO> list = employeeService.getEmployeeList();
         return new Result<>(200, "success", list);
     }
 

@@ -38,7 +38,8 @@
 
     <select id="selectAll" resultType="org.project.curriculum.pojo.salarySetting">
         select *
-        from salary_setting;
+        from salary_setting
+        ORDER BY salary asc,Position asc 
     </select>
 
 

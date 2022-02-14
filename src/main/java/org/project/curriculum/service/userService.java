@@ -1,10 +1,9 @@
 package org.project.curriculum.service;
 
-import org.project.curriculum.api.params.updateUserPwdParam;
+import org.project.curriculum.api.Params.updateUserPwdParam;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.exception.LoginException;
 import org.project.curriculum.pojo.user;
-import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 

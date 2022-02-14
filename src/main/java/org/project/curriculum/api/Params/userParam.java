@@ -1,4 +1,4 @@
-package org.project.curriculum.api.params;
+package org.project.curriculum.api.Params;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

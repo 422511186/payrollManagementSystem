@@ -79,7 +79,7 @@
             </if>
         </where>
     </select>
-    <select id="selectOV" resultType="org.project.curriculum.api.vo.employeeInfoOv">
+    <select id="selectOV" resultType="org.project.curriculum.api.Vo.employeeInfoVO">
         select id, name, entry_time, payroll_id, employee_id, pa.Position as Position, salary
         from employee_information as em
                  left join payroll as pa

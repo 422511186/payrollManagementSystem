@@ -2,8 +2,8 @@ package org.project.curriculum.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.project.curriculum.api.params.updateUserPwdParam;
-import org.project.curriculum.api.params.userParam;
+import org.project.curriculum.api.Params.updateUserPwdParam;
+import org.project.curriculum.api.Params.userParam;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.exception.LoginException;
 import org.project.curriculum.exception.ParamException;

@@ -1,9 +1,9 @@
 package org.project.curriculum.service.impl;
 
-import org.project.curriculum.api.params.employeeInfoParam;
-import org.project.curriculum.api.params.modifyParam;
-import org.project.curriculum.api.params.resignParam;
-import org.project.curriculum.api.vo.employeeInfoOv;
+import org.project.curriculum.api.Params.employeeInfoParam;
+import org.project.curriculum.api.Params.modifyParam;
+import org.project.curriculum.api.Params.resignParam;
+import org.project.curriculum.api.Vo.employeeInfoVO;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.mapper.employeeInformationMapper;
 import org.project.curriculum.mapper.payrollMapper;
@@ -41,9 +41,9 @@ public class employeeServiceImpl implements employeeService {
      * @return
      */
     @Override
-    public List<employeeInfoOv> getEmployeeList() {
-        List<employeeInfoOv> employeeInfoOvs = employeeInformationMapper.selectOV();
-        return employeeInfoOvs;
+    public List<employeeInfoVO> getEmployeeList() {
+        List<employeeInfoVO> employeeInfoVos = employeeInformationMapper.selectOV();
+        return employeeInfoVos;
     }
 
     /**

@@ -1,7 +1,7 @@
 package org.project.curriculum.mapper;
 
 import org.apache.ibatis.annotations.Param;
-import org.project.curriculum.api.vo.employeeInfoOv;
+import org.project.curriculum.api.Vo.employeeInfoVO;
 import org.project.curriculum.pojo.employeeInformation;
 import org.springframework.stereotype.Repository;
 
@@ -27,7 +27,7 @@ public interface employeeInformationMapper {
      *
      * @return
      */
-    List<employeeInfoOv> selectOV();
+    List<employeeInfoVO> selectOV();
 
 
     /**

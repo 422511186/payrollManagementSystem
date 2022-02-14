@@ -4,7 +4,6 @@ import org.project.curriculum.exception.FailException;
 import org.project.curriculum.mapper.salarySettingMapper;
 import org.project.curriculum.pojo.salarySetting;
 import org.project.curriculum.service.basicSalaryService;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,9 +1,9 @@
 package org.project.curriculum.service;
 
-import org.project.curriculum.api.params.employeeInfoParam;
-import org.project.curriculum.api.params.modifyParam;
-import org.project.curriculum.api.params.resignParam;
-import org.project.curriculum.api.vo.employeeInfoOv;
+import org.project.curriculum.api.Params.employeeInfoParam;
+import org.project.curriculum.api.Params.modifyParam;
+import org.project.curriculum.api.Params.resignParam;
+import org.project.curriculum.api.Vo.employeeInfoVO;
 import org.project.curriculum.exception.FailException;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public interface employeeService {
      *
      * @return
      */
-    List<employeeInfoOv> getEmployeeList();
+    List<employeeInfoVO> getEmployeeList();
 
     /**
      * 员工入职
