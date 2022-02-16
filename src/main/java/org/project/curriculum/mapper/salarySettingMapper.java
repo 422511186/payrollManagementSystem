@@ -1,6 +1,7 @@
 package org.project.curriculum.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.project.curriculum.api.Vo.salarySettingVO;
 import org.project.curriculum.pojo.salarySetting;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,13 @@ public interface salarySettingMapper {
      *
      * @return
      */
-    List<salarySetting> selectAll();
+    List<salarySettingVO> selectAll();
+    /**
+     * 获取员工职位分布表
+     *
+     * @return
+     */
+    List<salarySettingVO> getPositionCount();
 
     /**
      * 单条插入

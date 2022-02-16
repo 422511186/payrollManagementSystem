@@ -1,5 +1,6 @@
 package org.project.curriculum.service.impl;
 
+import org.project.curriculum.api.Vo.salarySettingVO;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.mapper.salarySettingMapper;
 import org.project.curriculum.pojo.salarySetting;
@@ -115,7 +116,12 @@ public class basicSalaryServiceImpl implements basicSalaryService {
      * @return
      */
     @Override
-    public List<salarySetting> getSalaryList() {
+    public List<salarySettingVO> getSalaryList() {
         return salarySettingMapper.selectAll();
+    }
+
+    @Override
+    public List<salarySettingVO> getPositionCount() {
+        return salarySettingMapper.getPositionCount();
     }
 }

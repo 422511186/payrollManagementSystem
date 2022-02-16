@@ -1,5 +1,6 @@
 package org.project.curriculum.service;
 
+import org.project.curriculum.api.Vo.salarySettingVO;
 import org.project.curriculum.exception.FailException;
 import org.project.curriculum.pojo.salarySetting;
 
@@ -68,6 +69,8 @@ public interface basicSalaryService {
      *
      * @return
      */
-    List<salarySetting> getSalaryList();
+    List<salarySettingVO> getSalaryList();
+
+    List<salarySettingVO> getPositionCount();
 }
 

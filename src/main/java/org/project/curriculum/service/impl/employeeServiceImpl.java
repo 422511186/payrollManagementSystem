@@ -42,7 +42,7 @@ public class employeeServiceImpl implements employeeService {
      */
     @Override
     public List<employeeInfoVO> getEmployeeList() {
-        List<employeeInfoVO> employeeInfoVos = employeeInformationMapper.selectOV();
+        List<employeeInfoVO> employeeInfoVos = employeeInformationMapper.selectVO();
         return employeeInfoVos;
     }
 
@@ -113,5 +113,20 @@ public class employeeServiceImpl implements employeeService {
         if (one == 0 || one1 == 0)
             throw new FailException("操作失败，请重新操作");
         return 1;
+    }
+
+    /**
+     * 关键词模糊查询员工信息
+     * @param value
+     * @return
+     */
+    @Override
+    public List<employeeInfoVO> selectLike(String value) {
+        return  employeeInformationMapper.selectLike(value);
+    }
+
+    @Override
+    public int count() {
+        return employeeInformationMapper.count();
     }
 }

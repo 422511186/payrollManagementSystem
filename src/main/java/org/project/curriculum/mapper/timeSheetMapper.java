@@ -14,7 +14,12 @@ import java.util.List;
  */
 @Repository
 public interface timeSheetMapper {
-
+    /**
+     * 计算当前id在某月的打卡次数
+     * @param id
+     * @param time
+     * @return
+     */
     @Select(
            value = "select count(*) " +
                    "from    time_sheet  " +
@@ -23,6 +28,11 @@ public interface timeSheetMapper {
     )
     Integer count(@Param("id") int id, @Param("time") String time);
 
+    /**
+     * 获取某id的打卡记录
+     * @param id
+     * @return
+     */
     @Select(
             value = "select e.id as id, e.name as name,t.dtime as dtime " +
                     "from time_sheet t " +
@@ -33,7 +43,10 @@ public interface timeSheetMapper {
     )
     List<AttendanceVO> selectById(@Param("id") int id);
 
-
+    /**
+     * 获取所有打卡记录
+     * @return
+     */
     @Select(
             value ="select e.id as id,e.name as name,t.dtime as dtime " +
                     "from time_sheet t " +

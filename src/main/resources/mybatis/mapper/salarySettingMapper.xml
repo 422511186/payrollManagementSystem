@@ -36,10 +36,21 @@
         </foreach>
     </delete>
 
-    <select id="selectAll" resultType="org.project.curriculum.pojo.salarySetting">
-        select *
-        from salary_setting
-        ORDER BY salary asc,Position asc 
+    <select id="selectAll" resultType="org.project.curriculum.api.Vo.salarySettingVO">
+        select s.Position,salary,count(*) as count
+        from salary_setting s
+                 left join  payroll p  on s.Position = p.Position
+        group by s.Position,salary
+        order BY salary asc;
+    </select>
+
+    <select id="getPositionCount" resultType="org.project.curriculum.api.Vo.salarySettingVO">
+        select s.Position,salary,count(*) as count
+        from salary_setting s
+                 left join  payroll p  on s.Position = p.Position
+        where employee_id is not null
+        group by s.Position,salary
+        order BY count asc;
     </select>
 
 

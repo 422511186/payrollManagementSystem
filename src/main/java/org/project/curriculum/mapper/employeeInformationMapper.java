@@ -1,6 +1,7 @@
 package org.project.curriculum.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.project.curriculum.api.Vo.employeeInfoVO;
 import org.project.curriculum.pojo.employeeInformation;
 import org.springframework.stereotype.Repository;
@@ -27,7 +28,7 @@ public interface employeeInformationMapper {
      *
      * @return
      */
-    List<employeeInfoVO> selectOV();
+    List<employeeInfoVO> selectVO();
 
 
     /**
@@ -77,4 +78,19 @@ public interface employeeInformationMapper {
      * @return 是否成功
      */
     int deleteBatch(@Param("list") List<employeeInformation> list);
+
+    /**
+     * 关键词模糊查询
+     * @param value
+     * @return
+     */
+    List<employeeInfoVO> selectLike(@Param("value") String value);
+
+    /**
+     * 获取员工总人数
+     * @return
+     */
+    @Select(value = "select count(*) from employee_information")
+    int count();
+
 }

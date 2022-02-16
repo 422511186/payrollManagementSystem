@@ -58,4 +58,12 @@ public class employeeAPI {
         return new Result<>(200, "success", "修改员工信息完成。");
     }
 
+    @ApiOperation("关键词模糊查询员工信息")
+    @GetMapping(value = "selectLike")
+    public Result selectLike(@RequestParam("value") String value) throws FailException {
+        List<employeeInfoVO> employeeInfoVOS = employeeService.selectLike(value);
+        return new Result<>(200, "success", employeeInfoVOS);
+    }
+
+
 }
