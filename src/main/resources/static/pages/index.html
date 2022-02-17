@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="../js/index.js"></script>
+    <script src="../js/axios.js"></script>
+    <link href="../css/index.css" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+    <div class="header-left">
+        <div class="item_box"><a class="item">工资报表打印</a></div>
+        <div class="item_box"><a class="item" id="getAttendance">考勤表</a></div>
+        <div class="item_box"><a class="item" id="getList">员工信息</a></div>
+        <div class="item_box"><a class="item" id="getPositionCount">员工职位分布</a></div>
+        <div class="item_box"><a class="item" id="getSalaryList">企业工资</a></div>
+    </div>
+    <div class="header-right">
+        <div class="item_box"><a class="item" id="logout">退出登录</a></div>
+    </div>
+</header>
+<div class="Features">
+    <!--    搜索框-->
+    <input class="search" type="text" placeholder="搜索">
+    <span id="count"></span>
+    <!--    企业工资设定-->
+    <div id="Features0">
+        <button style="float: right;margin-right: 100px" class="jbtn" id="insert0">添加设定</button>
+    </div>
+    <!--    员工工资-->
+    <div id="Features1">
+        <button style="float: right; margin-right: 100px" class="jbtn" id="insert1">添加员工信息</button>
+    </div>
+
+</div>
+<main class="table-box">
+    <table>
+
+    </table>
+</main>
+
+</body>
+</html>

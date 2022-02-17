@@ -30,8 +30,6 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
 
-        String requestURI = request.getRequestURI();
-//        log.info("preHandle拦截的请求路径是{}",requestURI);
 
         //登录检查逻辑
         HttpSession session = request.getSession();
@@ -55,7 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-//        log.info("postHandle执行{}",modelAndView);
+
     }
 
     /**
@@ -68,6 +66,6 @@ public class LoginInterceptor implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-//        log.info("afterCompletion执行异常{}",ex);
+
     }
 }

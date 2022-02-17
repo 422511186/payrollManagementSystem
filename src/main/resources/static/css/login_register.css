@@ -1,0 +1,101 @@
+* {
+
+    border: none;
+    list-style-type: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    background-image: linear-gradient(to bottom, rgb(241, 231, 221), rgb(189, 203, 202));
+
+}
+
+.loginBox {
+    display: flex;
+    width: 22rem;
+    height: 29rem;
+    border: 1px solid rgb(233, 233, 233);
+    background-color: #fff;
+    box-shadow: 9px 9px rgb(204, 211, 207);
+}
+
+.img {
+    height: 120px;
+    cursor: pointer;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto auto;
+}
+
+span {
+    margin-right: 15px;
+    font-size: 14px;
+}
+
+.text, .password {
+    width: 13rem;
+    height: 2rem;
+    margin-top: 15px;
+    border-radius: 3px;
+    border: 1px solid antiquewhite;
+    padding-left: 10px;
+}
+
+.yzmBox {
+    display: flex;
+}
+
+.yzmText {
+    width: 90px;
+    height: 2rem;
+    margin-top: 10px;
+    border-radius: 3px;
+    border: 1px solid antiquewhite;
+    padding-left: 10px;
+}
+
+.yzm {
+    margin-left: 17px;
+    width: 100px;
+    height: 2em;
+    margin-top: 12px;
+}
+
+.pwd {
+    display: flex;
+    margin-top: 5px;
+}
+
+.rmbPwd {
+    font-size: small;
+    color: #40403e;
+}
+
+
+.submit {
+    margin-top: 35px;
+    width: 5rem;
+    height: 2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgb(90, 152, 222);
+    color: snow;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
