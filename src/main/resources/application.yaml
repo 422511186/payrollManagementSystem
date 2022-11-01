@@ -21,6 +21,6 @@ mybatis:
     map-underscore-to-camel-case: true  #开启驼峰命名
 
 sql:
-  url: rm-bp163w6ndf518hsg40o.mysql.rds.aliyuncs.com
-  username: root
-  password: wyy0723@
+  url: 
+  username: 
+  password: 
